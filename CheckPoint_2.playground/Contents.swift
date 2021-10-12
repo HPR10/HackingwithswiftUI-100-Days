@@ -1,4 +1,7 @@
 import Cocoa
 
-var times = Set(["Palmeiras", "Flamengo", "Atlético Mineiro"])
-print(times.count)
+var times = ["Palmeiras", "Flamengo", "Atlético Mineiro", "Flamengo"]
+
+var repetidos = Set(times)
+
+print("O número \(times), times únicos \(repetidos)")
