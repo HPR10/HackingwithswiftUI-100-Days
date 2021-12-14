@@ -84,9 +84,6 @@ let nome = usuario()
 print("Nome: \(nome.primeiroNome) \(nome.segundoNome)")
 
 
-
-
-
 // Nesta função podemos ocultar o return pois só temos um retorno e limpo. Sem variáveis, loops ou condições.
 func Soma() -> Int {
     5 + 5
@@ -109,6 +106,23 @@ func greet3(name: String) -> String {
      name == "Hugo Pinheiro" ? "Que prazer querido" : "Hello \(name)!"
 }
 print(greet3(name: "Adriano"))
+
+
+func writeToLog(message: String) -> Bool {
+    if message != "" {
+        print("Log: \(message)")
+        return true
+    } else {
+        return false
+    }
+}
+
+// transformando a função acima em operador ternário.
+func writeToLog2(message: String) -> Bool {
+    message != "" ? true : false
+}
+print(writeToLog2(message: ""))
+
 
 
 
