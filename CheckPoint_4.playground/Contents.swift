@@ -4,16 +4,18 @@ enum RaizErro: Error {
     case abaixo, acima, naoEncontrado
 }
 
-func raizQuadrada(of number: Int)  throws -> Int {
+func SquareRoot(_ number: Int) throws -> Int {
+    
     if number < 1 {
         throw RaizErro.abaixo
     }
     
-    if number > 10000 {
+    if number > 10_000 {
         throw RaizErro.acima
     }
-    for i in 1...10000 {
-        if i * i == number {
+    
+    for i in 1...10_000 {
+     if  i * i == number {
             return i
         }
     }
@@ -21,20 +23,20 @@ func raizQuadrada(of number: Int)  throws -> Int {
     throw RaizErro.naoEncontrado
 }
 
-let number = 25
+let number = 10_000
 
 do {
-    let root = try raizQuadrada(of: number)
-    print("The square root of \(number) is \(root)")
-} catch RaizErro.abaixo {
-    print("Sorry, \(number) is too low - please specify a number from 1 through 10.000")
+   let raiz = try SquareRoot(number)
+   print("A raiz quadrada do numero \(number) é = \(raiz)")
 } catch RaizErro.acima {
-    print("Sorry, \(number) is too high - please specify a number from 1 through 10.000")
+    print("O numero \(number) esta acima do limite que é entre 1 e 10.000")
+} catch RaizErro.abaixo {
+    print("O numero \(number) está abaixo do limite que é entre 1 e 10.000")
 } catch RaizErro.naoEncontrado {
-    print("Sorry, we could not find an integar square root for \(number)")
-} catch {
-    print("Sorry, there was a problem")
-} 
+    print("Não foi possível encontrar um valor para a raiz quadrada de \(number)")
+}
+
+
 
 
 
