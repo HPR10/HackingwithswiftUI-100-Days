@@ -23,7 +23,7 @@ func SquareRoot(_ number: Int) throws -> Int {
     throw RaizErro.naoEncontrado
 }
 
-let number = 10_000
+let number = 4
 
 do {
    let raiz = try SquareRoot(number)
