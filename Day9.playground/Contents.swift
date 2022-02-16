@@ -22,11 +22,12 @@ let myName = { (name: String) -> String in
 }
 myName("Hugo")
 
+
 // Pensar que função tem tipos ajuda a entender Clousures.
 
 var greetCopy2: () -> Void = greetUser
 
-/* 1. O parâmetro vazio diz que a função não tem parâmetros.
+/* 1. O parenteses vazio diz que a função não tem parâmetros.
    2. A seta aponta o tipo de retorno da função.
    3. Void significa "nada"
 */
@@ -45,14 +46,14 @@ let user = data(1989)
 print(user)
 
 // Sem fechamentos
-let team = ["Hugo","Bud","Pan","Jao","Athena","Diego"]
+let team = ["Gloria", "Fresno", "NxZero", "Hevo84", "Strike"]
 let sortedTeam = team.sorted()
 print(sortedTeam)
 
 func captainFirstSorted(name1: String, name2: String) -> Bool  {
-    if name1 == "Hugo" {
+    if name1 == "Fresno" {
         return true
-    } else if name2 == "Hugo"{
+    } else if name2 == "Fresno"{
         return false
     }
     return name1 < name2
@@ -61,6 +62,16 @@ func captainFirstSorted(name1: String, name2: String) -> Bool  {
 // Com fechamentos
 let captainFirsTeam = team.sorted(by: captainFirstSorted)
 print(captainFirsTeam)
+
+// Somos capazes de criar clousures armazenando dentro de variáveis e constantes.
+let sayHello2 = {
+    print("Hi there!")
+}
+sayHello2()
+
+// Podemos também passar funções para outras funções
+let capitainFirstTeam2 = team.sorted(by: captainFirstSorted)
+
 
 // in marca o inicio do código da clousure.
 let captainFirstTeam2 = team.sorted(by: {(name1: String, name2: String) -> Bool in
@@ -71,6 +82,9 @@ let captainFirstTeam2 = team.sorted(by: {(name1: String, name2: String) -> Bool 
     }
     return name1 < name2
 })
+
+
+
 
 // https://www.hackingwithswift.com/quick-start/beginners/how-to-use-trailing-closures-and-shorthand-syntax
 
