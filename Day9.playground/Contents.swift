@@ -83,6 +83,20 @@ let captainFirstTeam2 = team.sorted(by: {(name1: String, name2: String) -> Bool 
     return name1 < name2
 })
 
+// Ocultando paramêtros e retorno na clousure
+let captainFirstTeam3 = team.sorted {a, b in
+    if a == "Hugo" {
+        return true
+    } else if b == "Hugo" {
+        return false
+    }
+    return a < b
+}
+
+let reverseTeam = team.sorted {$0 > $1}
+
+
+
 
 
 
