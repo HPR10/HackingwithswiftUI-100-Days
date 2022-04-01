@@ -83,8 +83,8 @@ let captainFirstTeam2 = team.sorted(by: {(name1: String, name2: String) -> Bool 
     return name1 < name2
 })
 
-// Ocultando paramêtros e retorno na clousure
-let captainFirstTeam3 = team.sorted {a, b in
+// removendo o by
+let captainFirstTeam3 = team.sorted { a, b in
     if a == "Hugo" {
         return true
     } else if b == "Hugo" {
@@ -93,13 +93,60 @@ let captainFirstTeam3 = team.sorted {a, b in
     return a < b
 }
 
+// Deixando a sintaxe totalmente limpa, não indicada caso tenha muitos parâmetros ou seja um clousure grande.
+let captainFirstTeam4 = team.sorted {
+    if $0 == "hugo" {
+        return true
+    } else if $1 == "hugo" {
+        return false
+    }
+    return $0 < $1
+}
+
 let reverseTeam = team.sorted {$0 > $1}
 
+// Encontrando prefixo(primeira letra de um string) em clousure
+var prefix = team.filter {$0.hasPrefix("F")}
+print(prefix)
+
+// Transformando o array em maiusculo com map e clousure
+var uppercase = team.map { $0.uppercased() }
+print(uppercase)
+
+// Funções que aceitam funções como parametros
+func makeArray(size: Int, using generator: () -> Int) -> [Int] {
+    var numbers = [Int]()
+    
+    for _ in 0..<size {
+        let newNumber = generator()
+        numbers.append(newNumber)
+    }
+    
+    return numbers
+}
+
+let rolls = makeArray(size: 5) {
+    Int.random(in: 1...5)
+}
+print(rolls)
+
+// Aceitar funções com vários parametros de função
+func doImportantWork(first: () -> Void, second: () -> Void, third: () -> Void) {
+    print("About to start first work")
+    first()
+    print("About to start second work")
+    second()
+    print("About to start third work")
+    third()
+    print("Done!")
+}
 
 
 
 
 
-// https://www.hackingwithswift.com/quick-start/beginners/how-to-use-trailing-closures-and-shorthand-syntax
+
+
+
 
 
