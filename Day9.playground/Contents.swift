@@ -141,8 +141,82 @@ func doImportantWork(first: () -> Void, second: () -> Void, third: () -> Void) {
     print("Done!")
 }
 
+// observadores de propriedades, esse código não observa o estado da variável game
+
+struct Game {
+    var score = 0
+}
+var game = Game()
+game.score += 20
+print("Score is now \(game.score)")
+game.score -= 7
+print("Score is now \(game.score)")
+game.score += 1
 
 
+// código com o observador e ele printa toda vez que o valor da variável muda
+struct Game2 {
+    var score2 = 0 {
+        didSet {
+            print("score is now \(score2)")
+        }
+    }
+}
+var game2 = Game2()
+game2.score2 += 10
+game2.score2 -= 3
+game2.score2 += 1
+
+
+struct App {
+    var contacts = [String]() {
+        willSet {
+            print("Current value is: \(contacts)")
+            print("New value will be: \(newValue)")
+        }
+        
+        didSet {
+            print("There are now \(contacts.count) contacts")
+            print("Old value was \(oldValue)")
+        }
+    }
+}
+var app = App()
+app.contacts.append("Adrian E")
+app.contacts.append("Allen W")
+app.contacts.append("Ish S")
+
+// inicializador swift padrão para estruturas, swift cria um incializador por baixo dos panos.
+struct Player {
+    let name: String
+    let mumber: Int
+}
+let player = Player(name: "Athena", mumber: 18)
+
+// inicializador explicito padrão
+struct Player2 {
+    let name2: String
+    let number2: Int
+    
+    init(name2: String, number2: Int) {
+        self.name2 = name2
+        self.number2 = number2
+    }
+}
+
+// inicializador personalizado
+
+struct Player3 {
+    let name3: String
+    let number3: Int
+    
+    init(name3: String) {
+        self.name3 = name3
+        number3 = Int.random(in: 1...99)
+    }
+}
+let player3 = Player3(name3: "Athena")
+print(player3.number3)
 
 
 
