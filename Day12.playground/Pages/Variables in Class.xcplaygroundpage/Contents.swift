@@ -42,7 +42,9 @@ var ageUser = Name() // Esse código não compila caso fosse um let nessa linha.
 ageUser.age = 30
 print(ageUser.age)
 
+
 // MARK: - Por que as propriedades variáveis em classes constantes podem ser alteradas?
+
 /* Difernça de mutabilidade entre classes e structs:
  1 - Classes variáveis podem ter propriedades variáveis alteradas
  2 - Classes constantes podem ter propriedades variáveis alteradas
@@ -52,5 +54,4 @@ print(ageUser.age)
 
 var number = 5 // caso aqui fosse uma constante(let) seria aplicado o conceito 4
 number = 6
-
 /* No exemplo acima atribuimos o valor 5 na variável number e abaixo removemos o 5 e colocamos o 6 em seu lugar. Assim funciona struct em swift mudando algo você está implicitamente destruindo a estrutura e a criando outra vez */
