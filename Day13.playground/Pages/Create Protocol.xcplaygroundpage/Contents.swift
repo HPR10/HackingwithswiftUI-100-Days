@@ -74,5 +74,32 @@ func getTravelEstimates(using vehicles: [Vehicle], distance: Int) {
 
 getTravelEstimates(using: [car, bike], distance: 150)
 
-/* Notas:  Você pode se conformar com quantos protocolos precisar, apenas listando-os um a um separados com uma círgula. Se você precisar subclasse algo e se adequar a um protocolo, você deve colocar o nome da classe dos pais em primeiro lugar, em seguida, escrever seus protocolos depois.*/
+/* Notas:  Você pode se conformar com quantos protocolos precisar, apenas listando-os um a um separados com uma vírgula. Se você precisar subclasse algo e se adequar a um protocolo, você deve colocar o nome da classe dos pais em primeiro lugar, em seguida, escrever seus protocolos depois.*/
+
+// MARK: - Por que Swift precisa de protocolos ?
+/* protocolos definem os atributos básicos para uma struct, classe ou enem devem ter. Na prática seria tratar essas estruturas para receber dados de forma mais geral. Em vez de dizer "este método deve aceitar um objeto", podemos dizer que "este método pode aceitar qualquer coisa que esteja em conformidade com o protocolo*/
+
+
+protocol Purchaseable {
+    var name: String { get set }
+}
+
+struct Book {
+    var name: String
+}
+
+
+struct Movie: Purchaseable {
+    var name: String
+    var actors: String
+}
+
+struct Coffee: Purchaseable {
+    var name: String
+    var type: String
+}
+
+func buy(_ item: Purchaseable) { // o parâmetro item imprime qualquer name de struct em conformidade com o protocolo Purchaseable.
+    print("I'm buying \(item.name)")
+}
 

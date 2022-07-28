@@ -2,6 +2,6 @@
 <playground version='6.0' target-platform='macos' buildActiveScheme='true' importAppTypes='true'>
     <pages>
         <page name='Create Protocol'/>
-        <page name='Untitled Page'/>
+        <page name='Opaque Return Type'/>
     </pages>
 </playground>
