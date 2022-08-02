@@ -25,7 +25,7 @@ let trimmed2 = quote.trimmed()
 // Função global
 
  func trim(_ string: String) -> String {
-    string?.trimmingCharacters(in: .whitespacesAndNewlines)
+     string.trimmingCharacters(in: .whitespacesAndNewlines)
 }
 let trimmed3 = trim(quote)
  
@@ -40,10 +40,10 @@ let trimmed3 = trim(quote)
 var quote2: String = "       A verdade pura nunca é simples      "
 let trimmed4 = quote.trimmingCharacters(in: .whitespacesAndNewlines)
 
-mutating func trim() {
-    self = self.trimmed()
-}
-quote2.trim()
+// mutating func trim() {
+//    self = self.trimmed()
+// }
+// quote2.trim()
 
 /* Boa prática: Em swift caso esteja devolvendo um novo valor em vez de alterá-lo é boa prática usar palavras como: trimmed()trim()edingreversed().
  obs: sorted() e sort() devolvem novas cópias e não mudam o valor em vigor
@@ -66,14 +66,14 @@ struct Book {
     let page: Int
     let readingHours: Int
 }
-let lotr = Book(title: "lord of the kings", page: 1170, readinghours: 500)
+let lotr = Book(title: "lord of the kings", page: 1170, readingHours: 500)
 
 // Com um init personalizado dentro de uma extension podemos ter tanto a inicialização padrão da struct quanto um personalizada.
 extension Book {
-    init(title: String, pageCount: Int) {
+    init(title: String, page: Int) {
             self.title = title
-            self.pageCount = pageCount
-            self.readingHours = pageCount / 50
+            self.page = page
+            self.readingHours = page / 50
         }
 }
 

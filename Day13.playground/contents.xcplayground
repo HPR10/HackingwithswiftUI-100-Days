@@ -4,5 +4,6 @@
         <page name='Protocol'/>
         <page name='Opaque Return Type'/>
         <page name='Extension'/>
+        <page name='Protocol + Extension'/>
     </pages>
 </playground>
