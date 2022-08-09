@@ -97,8 +97,18 @@ for (index, value) in numeros.enumerated() {
 
 // MARK: - DICIONÁRIO
 
+// Usamos dicionário para procurar valores em base em seu indentificador(ID) como em um dicionário da vida real.
+// Ao contrário de matriz dicionários não tem uma ordem específica.
+// Crie dicionário como variáveis(com o introdutor) para adicionar outros elementos ao dicionário,não é possível adicionar com constantes.
+
+var namesOfIntegers: [Int: String] = [:] // Dicionário vazio
+namesOfIntegers[16] = "sixteen"
+
+var pets: [String: String] = ["branco":"pan", "preto":"bud", "neutro": "jao"] // dicionário literal
+var pets2 = ["branco":"pan", "preto":"bud", "neutro": "jao"] // Forma resumida por causa da inferência de tipo do swift
+
 var funcionario = [
-    "nome": "Hugo",
+    "nome": "Hugo", // Forma taquigrafa de escrever dicionário
     "profissao": "Programador",
     "localidade": "Rio De janeiro"
 ]
@@ -123,7 +133,7 @@ cantores["Tieri"] = 2
 cantores["Gustavo Lima"] = 3
 print(cantores)
 
-// Subescrevendo dicionário
+// Modificando dicionários
 var arqInimigos = [String: String]()
 arqInimigos["Batman"] = "Coringa"
 arqInimigos["Superman"] = "Lex Luthor"
@@ -131,8 +141,44 @@ arqInimigos["Superman"] = "Lex Luthor"
 arqInimigos["Batman"] = "Pinguim"
 print(arqInimigos)
 
+// Contando itens do dicionário.
+print("Eu tenho no total \(pets.count) cachorros")
+
+// verificando se o dicionário tá vazio ou não.
+if pets.isEmpty {
+    print("A lista de pets tá vazia")
+} else {
+    print("A lista de pets NÃO está fazia")
+}
+
+// Substituindo/Atualizando valores
+if let oldValue = pets.updateValue("pan", forKey: "Caramelo") {
+    print("A nova cor do bud é \(oldValue)")
+}
+
+// Acessando um elemento pelo Identificador(ID) com sintaxe de subscrito
+if let petsName = pets["preto"] {
+    print("O nome do meu pet é \(petsName)")
+} else {
+    print("O nome encontrado não disponível no dicionário")
+}
+
+// Removendo elemento do dicionário
+pets["preto"] = "bud"
+pets["preto"] = nil
+print(pets)
+
+// Removendo elemento do dicionário com métodos
+if let removeValue = pets.removeValue(forKey: "Caramelo") {
+    print("Removido o nome \(removeValue)")
+} else {
+    print("Value Caramelo não encontrado no dicionário")
+}
+
+
 
 // MARK: - Sets(Conjuntos) - Sets não aceitam dados duplicados como no array(Matrizes)
+
 // Utilizado quando a ordem dos elementos não importa e quando você que garantir que nenhum elemento se repita.
 // Set(Conjuntos) tem que ser hashable para ser adicionado a um conjunto, ou seja o tipo deve ter uma forma de calcular um valor hash para si mesmo.
 // Um valor hash é um valor que é o mesmo para todos os objetos que se comparam igualmente.
