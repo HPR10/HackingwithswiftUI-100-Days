@@ -133,18 +133,63 @@ print(arqInimigos)
 
 
 // MARK: - Sets(Conjuntos) - Sets não aceitam dados duplicados como no array(Matrizes)
-let paises = Set(["Brasil", "Argentina", "Colômbia", "Paraguai"])
-// os conjuntos imprimem os dados sem um ordem lógica
+// Utilizado quando a ordem dos elementos não importa e quando você que garantir que nenhum elemento se repita.
+// Set(Conjuntos) tem que ser hashable para ser adicionado a um conjunto, ou seja o tipo deve ter uma forma de calcular um valor hash para si mesmo.
+// Um valor hash é um valor que é o mesmo para todos os objetos que se comparam igualmente.
+// TODO TIPO BÁSICO EM SWIFT É hashable consultar: https://developer.apple.com/documentation/swift/hashable
+
+var paises = Set(["Brasil", "Argentina", "Colômbia", "Paraguai"]) // Caso o set seja let não podemos adicionar novos elementos.
+print("letters is of type Set<Character> with \(paises.count) items.")
+
+// Criando um conjunto com matriz literal
+var name: Set<Int> = [1,2,3]
+// Por causa da inferência de tipo Swift podemos declarar um set mais simplificado
+var name2: Set = [0.0, 0.1,0.2] // Set de Double
+
+// Acessando e modificando Set(Conjuntos)
+print("O numero de nomes é \(name.count)!") //contando elemento no conjunto
+
+if name.isEmpty {   // verificando se é vazio ou não
+    print("Não temos nomes no momento")
+} else {
+    print("Temos \(name.count) nomes na lista")
+}
+
+paises.insert("Argélia") // Adicionando elemento ao Set
 print(paises)
 
-// Sets(conjuntos) adicionam elementos de forma diferente dos arrays(Matrizes)
-var Selecoes = Set<String>()
-Selecoes.insert("Argélia")
-Selecoes.insert("Dinamarca")
-Selecoes.insert("Bolívia")
-// os conjuntos imprimem os dados sem um ordem lógica
-print(Selecoes)
+paises.remove("Brasil") // Removendo elemento do set
+print(paises)
 
+paises.contains("Paraguai") // Verificando se exsite determinado elemento retornar um booleano.
+
+for p in paises { // Iterando sobre um conjunto
+    print("\(p)")
+}
+
+for n in paises.sorted() {
+    print("\(n)")
+}
+
+// Executando operações de conjunto DIAGRAMA DE VEEN
+
+var dog: Set = ["bud", "pan", "jao"]
+var cat: Set = ["laila", "cris"]
+var wolf: Set = ["laila", "bud"]
+
+dog.union(cat).sorted()
+wolf.intersection(cat).sorted()
+dog.symmetricDifference(cat).sorted()
+
+// Definição de adesão e igualdade
+
+let houseAnimals: Set = ["🐶", "🐱"]
+let farmAnimals: Set = ["🐮", "🐔", "🐑", "🐶", "🐱"]
+let cityAnimals: Set = ["🐦", "🐭"]
+
+cityAnimals.isDisjoint(with: farmAnimals) // Verificando valores comuns
+farmAnimals == cityAnimals // verificando se são iguais
+houseAnimals.isSubset(of: farmAnimals) // verificando se o primeiro conjunto está contido no segundo.
 
 // MARK: - Enums(Enumeração)
 
