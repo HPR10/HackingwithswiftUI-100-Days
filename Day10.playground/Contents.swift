@@ -50,6 +50,7 @@ var colaborador1 = funcionario(nome: "André", feriasRestante: 10)
 var colaborador2 = funcionario.init(nome: "Josias", feriasRestante: 8)
 obs: Para atribuir um valor padrão a uma propriedade ela tem que ser uma variável, caso seja constante ela será removida completamente do inicializador. */
 
+
 // - MARK: Propriedades computadas e valores dinâmicos
 
 struct Colaborador2 {
