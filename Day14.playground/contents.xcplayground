@@ -3,5 +3,6 @@
     <pages>
         <page name='optionals + if let'/>
         <page name='Guard let'/>
+        <page name='Coalescing Nulo'/>
     </pages>
 </playground>
