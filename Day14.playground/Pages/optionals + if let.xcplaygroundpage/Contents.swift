@@ -38,8 +38,6 @@ if let number = number {
 
 
 
-// Podemos desembrulhar number para utilizar normalmente utilizando o sombreamento em swift
-
 
 
 
