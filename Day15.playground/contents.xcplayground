@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='macos' buildActiveScheme='true' importAppTypes='true'>
+    <pages>
+        <page name='Strings'/>
+        <page name='Variáveis and Constants'/>
+        <page name='Inteiros'/>
+        <page name='Decimais and Booleans'/>
+    </pages>
+</playground>
